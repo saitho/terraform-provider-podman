@@ -1,12 +1,12 @@
 ---
-layout: "scaffolding"
-page_title: "Provider: Scaffolding"
-sidebar_current: "docs-scaffolding-index"
+layout: "podman"
+page_title: "Provider: Podman"
+sidebar_current: "docs-podman-index"
 description: |-
-  Terraform provider scaffolding.
+  Terraform provider podman.
 ---
 
-# Scaffolding Provider
+# Podman Provider
 
 Use this paragraph to give a high-level overview of your provider, and any configuration it requires.
 
@@ -15,11 +15,11 @@ Use the navigation to the left to read about the available resources.
 ## Example Usage
 
 ```hcl
-provider "scaffolding" {
+provider "podman" {
 }
 
 # Example resource configuration
-resource "scaffolding_resource" "example" {
+resource "podman_resource" "example" {
   # ...
 }
 ```

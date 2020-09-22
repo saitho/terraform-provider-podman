@@ -1,4 +1,4 @@
-module github.com/hashicorp/terraform-provider-scaffolding
+module github.com/saitho/terraform-provider-podman
 
 go 1.12
 
