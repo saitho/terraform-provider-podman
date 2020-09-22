@@ -21,7 +21,22 @@ $ go install
 Using the provider
 ----------------------
 
-Fill this in for each provider
+```hcl-terraform
+provider "podman" {
+  // You may want to authenticate with container registries here
+  // If none is given, Docker Hub will be used per default
+  registry_auth {
+    address = "registry1.com"
+    username = "registry1user"
+    password = "registry1pass"
+  }
+  registry_auth {
+    address = "registry2.com"
+    username = "registry2user"
+    password = "registry2pass"
+  }
+}
+```
 
 Developing the Provider
 ---------------------------

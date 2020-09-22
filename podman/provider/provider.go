@@ -6,11 +6,42 @@ import (
 
 func New() *schema.Provider {
 	return &schema.Provider{
-		DataSourcesMap: map[string]*schema.Resource{
-			"scaffolding_data_source": dataSourceScaffolding(),
+		Schema: map[string]*schema.Schema{
+			"registry_auth": {
+				Type:     schema.TypeSet,
+				Optional: true,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"address": {
+							Type:        schema.TypeString,
+							Required:    true,
+							Description: "Address of the registry",
+						},
+
+						"username": {
+							Type:          schema.TypeString,
+							Optional:      true,
+							DefaultFunc:   schema.EnvDefaultFunc("DOCKER_REGISTRY_USER", ""),
+							Description:   "Username for the registry",
+						},
+
+						"password": {
+							Type:          schema.TypeString,
+							Optional:      true,
+							Sensitive:     true,
+							DefaultFunc:   schema.EnvDefaultFunc("DOCKER_REGISTRY_PASS", ""),
+							Description:   "Password for the registry",
+						},
+					},
+				},
+			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"scaffolding_resource": resourceScaffolding(),
+			// "podman_container": resourcePodmanContainer(),
+			// "podman_image":     resourcePodmanImage(),
+			// "podman_network":   resourcePodmanNetwork(),
+			// "podman_volume":    resourcePodmanVolume(),
 		},
 	}
 }
